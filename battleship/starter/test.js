@@ -27,6 +27,7 @@ let shipGenerator = (rows, cols, numShips) => {
   for(let i = 0; i < numShips; i ++){
     let row = Math.floor(Math.random() * rows);
     let col = Math.floor(Math.random() * cols);
+   row !== col
     shipLocations.push([row, col])
   }
   return shipLocations
@@ -55,14 +56,19 @@ let shipLocationSetter = (shipGenArr, grid) => {
   }
 }
 
+let shotTester = (firedShot, grid) => {
+    let row = firedShot[0];
+    let col = firedShot[1];
+    if(grid[row][col] === 's')grid[row][col] = 'h';
+    else grid[row][col] = 'x';
+}
+
 let grid = gridPopulator(10,10);
-let ship = shipGenerator(10,10,5);
+let ship = shipGenerator(10,10,50);
 
-console.table(grid)
-
-console.log(ship)
+const testGrid = grid;
 
 shipLocationSetter(ship, grid)
 
-
 console.table(grid)
+console.table(testGrid)
