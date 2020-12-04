@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let counter0 = 0;
+    let counter0 = 5;
     let counter1 = 0;
     let counter2 = 0;
     let counter3 = 0;
     let counter4 = 0;
     let counter5 = 0;
     let counter6 = 0;
+    let clickTargetCounter = 1;
 
     const col0 = document.getElementById('column-0');
     const col1 = document.getElementById('column-1');
@@ -16,10 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const col6 = document.getElementById('column-6');
 
     col0.addEventListener('click', event => {
-      counter0++;
-      if(counter0 >= 6){
+      if(counter0 <= 0){
         col0.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter0}-0`)
+      square.style.backgroundColor = 'red'
+      counter0--;
+
     })
     col1.addEventListener('click', event => {
       counter1++;
@@ -62,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const clickTargets = document.getElementById("click-targets")
     clickTargets.classList.add("black")
 
-    let clickTargetCounter = 1;
     clickTargets.addEventListener('click', event => {
         if (clickTargetCounter % 2 !== 0) {
             clickTargets.classList.remove("black");
@@ -75,4 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         clickTargetCounter++
     })
+    // const boardSqs = document.querySelectorAll('.token-square');
+    // boardSqs.addEventListener('click', event => {
+    //   boardSqs.forEach(boardSq => {
+    //     let newDiv = document.createElement('div');
+    //     newDiv.classList.add('token','red');
+    //     boardSq.appendChild(newDiv);
+    //   })
+    // })
 })
