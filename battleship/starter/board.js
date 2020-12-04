@@ -33,6 +33,7 @@ class Board {
     this.numRos = numRos;
     this.numCols = numCols;
     this.numShips = numShips;
+    this.grid = this.populateGrid();
 
     //this.grid = populateGrid()
 
@@ -51,7 +52,7 @@ class Board {
   }
 
   display() {
-    
+
     // TODO: Print the game board with marks on any spaces that have been fired
     // upon. Be sure not to display the unhit ships to the user! Hint: you might
     // be able to use console.table()
@@ -78,7 +79,7 @@ class Board {
 }
 
 let testBoard = new Board(10, 10, 3);
-console.table(testBoard);
-console.table(testBoard.populateGrid())
-
+//console.table(testBoard);
+//console.table(testBoard.populateGrid())
+console.table(testBoard.grid)
 module.exports = Board;

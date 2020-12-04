@@ -90,4 +90,9 @@ class Board {
   }
 }
 
+let testBoard = new Board(10, 10, 3);
+//console.table(testBoard);
+//console.table(testBoard.populateGrid())
+console.table(testBoard.grid)
+
 module.exports = Board;
