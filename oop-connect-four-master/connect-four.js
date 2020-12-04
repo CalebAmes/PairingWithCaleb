@@ -57,5 +57,22 @@ document.addEventListener("DOMContentLoaded", () => {
         col6.setAttribute('class', 'full')
       }
     })
+    // col1.setAttribute('class', 'red');
+    // col2.setAttribute("class", 'black');
+    const clickTargets = document.getElementById("click-targets")
+    clickTargets.classList.add("black")
 
+    let clickTargetCounter = 1;
+    clickTargets.addEventListener('click', event => {
+        if (clickTargetCounter % 2 !== 0) {
+            clickTargets.classList.remove("black");
+            clickTargets.classList.add("red");
+
+        }else{
+            clickTargets.classList.remove("red");
+            clickTargets.classList.add("black");
+
+        }
+        clickTargetCounter++
+    })
 })
