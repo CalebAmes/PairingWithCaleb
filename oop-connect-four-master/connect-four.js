@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         col0.setAttribute('class', 'full')
       }
       let square = document.getElementById(`square-${counter0}-0`)
-      if (clickTargetCounter % 2 !== 0) {
+      if (clickTargetCounter % 2 === 0) {
         square.classList.add("token");
         square.classList.add("red");
 
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         square.classList.add("token");
         square.classList.add("black");
 
-      counter0--;
       }
+      counter0--;
     })
     col1.addEventListener('click', event => {
       counter1++;
