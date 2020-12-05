@@ -32,44 +32,109 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       counter0--;
     })
+
     col1.addEventListener('click', event => {
-      counter1++;
-      if(counter1 >= 6){
+      if(counter1 <= 0){
         col1.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter1}-1`)
+      if (clickTargetCounter % 2 === 0) {
+        square.classList.add("token");
+        square.classList.add("red");
+
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      }
+      counter1--;
     })
+
     col2.addEventListener('click', event => {
-      counter2++;
-      if(counter2 >= 6){
+      if(counter2 <= 0){
         col2.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter2}-2`)
+      if (clickTargetCounter % 2 === 0) {
+        square.classList.add("token");
+        square.classList.add("red");
+
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      }
+      counter2--;
     })
+
     col3.addEventListener('click', event => {
-      counter3++;
-      if(counter3 >= 6){
+      if(counter3 <= 0){
         col3.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter3}-3`)
+      if (clickTargetCounter % 2 === 0) {
+        square.classList.add("token");
+        square.classList.add("red");
+
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      }
+      counter3--;
     })
+
     col4.addEventListener('click', event => {
-      counter4++;
-      if(counter4 >= 6){
+      if(counter4 <= 0){
         col4.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter4}-4`)
+      if (clickTargetCounter % 2 === 0) {
+        square.classList.add("token");
+        square.classList.add("red");
+
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      }
+      counter4--;
     })
+
     col5.addEventListener('click', event => {
-      counter5++;
-      if(counter5 >= 6){
+      if(counter5 <= 0){
         col5.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter5}-5`)
+      if (clickTargetCounter % 2 === 0) {
+        square.classList.add("token");
+        square.classList.add("red");
+
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      }
+      counter5--;
     })
+
     col6.addEventListener('click', event => {
-      counter6++;
-      if(counter6 >= 6){
+      if(counter6 <= 0){
         col6.setAttribute('class', 'full')
       }
+      let square = document.getElementById(`square-${counter6}-6`)
+      if (clickTargetCounter % 2 === 0) {
+        square.classList.add("token");
+        square.classList.add("red");
+
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      }
+      counter6--;
     })
-    // col1.setAttribute('class', 'red');
-    // col2.setAttribute("class", 'black');
+
     const clickTargets = document.getElementById("click-targets")
     clickTargets.classList.add("black")
 
