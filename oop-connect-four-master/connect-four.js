@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     let counter0 = 5;
-    let counter1 = 0;
-    let counter2 = 0;
-    let counter3 = 0;
-    let counter4 = 0;
-    let counter5 = 0;
-    let counter6 = 0;
+    let counter1 = 5;
+    let counter2 = 5;
+    let counter3 = 5;
+    let counter4 = 5;
+    let counter5 = 5;
+    let counter6 = 5;
     let clickTargetCounter = 1;
 
     const col0 = document.getElementById('column-0');
@@ -21,9 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
         col0.setAttribute('class', 'full')
       }
       let square = document.getElementById(`square-${counter0}-0`)
-      square.style.backgroundColor = 'red'
-      counter0--;
+      if (clickTargetCounter % 2 !== 0) {
+        square.classList.add("token");
+        square.classList.add("red");
 
+    }else{
+        square.classList.add("token");
+        square.classList.add("black");
+
+      counter0--;
+      }
     })
     col1.addEventListener('click', event => {
       counter1++;
