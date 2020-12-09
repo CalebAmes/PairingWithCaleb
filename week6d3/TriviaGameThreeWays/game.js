@@ -1,19 +1,9 @@
-const fetch = require('node-fetch')
-import {getClue} from './promise-version';
+import { getClue as getClueFromPromise } from './promise-version.js';
 
 document.addEventListener(('DOMContentLoaded'), () => {
+    
+const usePromise = document.getElementById("use-promise")
 
-
-
-
-  // const getClue = function (){
-  //   return fetch("https://jservice.xyz/api/random-clue")
-  //     .then(res => res.json())
-  //     .then(res =>{
-  //       console.log(res)
-  //     })
-  // }
-  // getClue()
 
 
 

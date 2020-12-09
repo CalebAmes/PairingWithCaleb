@@ -1,12 +1,13 @@
-const fetch = require('node-fetch');
-
 const getClue = function (){
   return fetch("https://jservice.xyz/api/random-clue")
-    .then(res => res.json())
-    .then(res =>{
-      console.log(res)
+    .then(res => {
+      if (res.ok !== true) {
+        return Error(res.status)
+      }
+      return res.json()
     })
+    .then(res => res)
 }
 getClue()
 
-export{getClue}
+export { getClue }
