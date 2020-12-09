@@ -1,11 +1,12 @@
 const http = require('http')
 
 http.createServer((req, res) => {
-    res.write('<h1>Hello World</h1>')
+   // res.write('<h1>Hello World</h1>')
     switch(req.url){
         case '/OK': 
         console.log('INBOUND: /OK')
         res.writeHead(200)
+        res.end()
         break;
         case '/Bad-Request':
             console.log('INBOUND: Bad-Request')
@@ -43,10 +44,13 @@ http.createServer((req, res) => {
             console.log('INBOUND: Not-Found')
             res.writeHead(404)
         break;
+        // default:
+        // res.end()
     }
 
     res.end()
-}).listen(8080, ()=>{
+
+}).listen(3000, ()=>{
     console.log('Welcome to the Server')
 })
 
