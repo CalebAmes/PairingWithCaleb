@@ -1,12 +1,50 @@
 <DOCTYPE class="html!">
   <head>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-4ZPLezkTZTsojWFhpdFembdzFudphhoOzIunR1wH6g1WQDzCAiPvDyitaK67mp0+" crossorigin="anonymous">
+    <script type='module' src='./game.js'></script>
     <title>
       Menagé a trios
     </title>
   </head>
   <body>
     <main>
-      
+      <div id="game-board">
+        <button id="use-promise" class="pure-button">
+          Use a Promise
+        </button>
+        <button id="use-async-await" class="pure-button">
+          Use async/await
+        </button>
+        <button id="use-callback" class="pure-button">
+          Use a callback
+        </button>
+        <div id="score">
+
+        </div>
+        <div id="catagory-title">
+
+        </div>
+        <div id="question">
+
+        </div>
+        <div id="value">
+
+        </div>
+        <div id="invalid-count">
+
+        </div>
+        <form class="pure-form">
+          <textarea id="player-response" class="pure-input-1">
+
+          </textarea>
+        </form>
+        <button id="check-response" class="pure-button">
+          check response
+        </button>
+        <div id="answer">
+          
+        </div>
+      </div>
 
 
 
