@@ -3,7 +3,7 @@ import { getClue as getClueFromAsyncFunction } from './async-await-version.js'
 
 document.addEventListener(('DOMContentLoaded'), () => {
 getClueFromAsyncFunction()
-console.log(getClueFromPromise())
+// console.log(getClueFromPromise())
 const changeInnerHTML = (clue)=>{
   document.getElementById('question').innerHTML = clue.question;
       
@@ -31,9 +31,9 @@ const asyncBtn = document.getElementById("use-async-await")
 asyncBtn.addEventListener("click", async () => {
   try {
     const value = await getClueFromAsyncFunction()
-    return changeInnerHTML(value)
+    changeInnerHTML(value)
   } catch (error) {
-    console.error(error)
+    console.error(error.message)
   }
 })
 
