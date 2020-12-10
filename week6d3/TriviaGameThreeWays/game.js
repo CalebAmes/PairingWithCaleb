@@ -1,5 +1,6 @@
 import { getClue as getClueFromPromise } from './promise-version.js';
 import { getClue as getClueFromAsyncFunction } from './async-await-version.js'
+// import { getClue as getClueFromCallback} from './callback-version'
 
 document.addEventListener(('DOMContentLoaded'), () => {
 // getClueFromAsyncFunction()
@@ -19,16 +20,21 @@ const changeInnerHTML = (clue)=>{
         invalidCount.innerHTML = 'invalid'
       }else invalidCount.innerHTML = 'valid';
 }
+
+
 const usePromise = document.getElementById("use-promise")
+
 usePromise.addEventListener('click', () => {
   getClueFromPromise()
     .then(clue => changeInnerHTML(clue))
     .catch(clue => console.error('Error:',clue.message))
 })
 
-const asyncBtn = document.getElementById("use-async-await")
-  
-asyncBtn.addEventListener("click", async () => {
+
+
+const useAsync = document.getElementById("use-async-await") 
+
+useAsync.addEventListener("click", async () => {
   try {
     const value = await getClueFromAsyncFunction()
     changeInnerHTML(value)
@@ -37,4 +43,13 @@ asyncBtn.addEventListener("click", async () => {
   }
 })
 
+
+
+// const useCallback = document.getElementById("use-callback")
+
+// useCallback.addEventListener("click", () => {
+//   getClueFromCallback((err, clue) => {
+//     if(err )
+//   })
 })
+// })
