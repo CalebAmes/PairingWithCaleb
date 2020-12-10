@@ -1,7 +1,12 @@
-const returnsThree = () => 3;
+const reciprocal = (num) => {
+    return 1 / num;
+}
+
+const returnsThree = () => {
+    return 3;
+}
 
 
-// const reciprocal = () => {}
 
 
-module.exports = returnsThree;
+module.exports = { reciprocal, returnsThree }
