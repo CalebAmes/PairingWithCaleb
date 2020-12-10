@@ -2,7 +2,7 @@ import { getClue as getClueFromPromise } from './promise-version.js';
 import { getClue as getClueFromAsyncFunction } from './async-await-version.js'
 
 document.addEventListener(('DOMContentLoaded'), () => {
-getClueFromAsyncFunction()
+// getClueFromAsyncFunction()
 // console.log(getClueFromPromise())
 const changeInnerHTML = (clue)=>{
   document.getElementById('question').innerHTML = clue.question;
@@ -22,7 +22,7 @@ const changeInnerHTML = (clue)=>{
 const usePromise = document.getElementById("use-promise")
 usePromise.addEventListener('click', () => {
   getClueFromPromise()
-    .then(changeInnerHTML)
+    .then(clue => changeInnerHTML(clue))
     .catch(clue => console.error('Error:',clue.message))
 })
 

@@ -1,11 +1,10 @@
 
-const getClue = function (){
+export const getClue = function (){
   return fetch("https://jservice.xyz/api/random-clue")
     .then(res => res.json())
     .then(res =>{
-      console.log(res)
+      return res
     })
 }
 getClue()
 
-export{getClue}
