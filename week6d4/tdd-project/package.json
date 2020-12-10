@@ -1,7 +1,6 @@
 {
   "name": "tdd-project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -15,5 +14,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
