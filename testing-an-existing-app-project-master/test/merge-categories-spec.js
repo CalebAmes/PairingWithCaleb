@@ -12,14 +12,23 @@ describe("mergeCategories()", () => {
     `;
 
     it("should return no <li>s for no categories", () => {
+      // expect.fail('please write this test');
+      const tagName = "<li>"
+      const result  = mergeCategories(template, [], tagName)
+      expect(result).to.not.include("<li>")
     });
 
     it("should return a single <li> for one category", () => {
-      expect.fail('please write this test');
+      // expect.fail('please write this test');
+      const tagName = "<li>"
+      const result = mergeCategories(template, ["one"], tagName)
+      expect(result).to.includes("<li>")
     });
 
     it("should return an <li> for each category", () => {
-      expect.fail('please write this test');
+      const tagName = "<li>"
+      const result = mergeCategories(template, ["one", "two"], tagName)
+      expect(result).to.includes("<li>")
     });
   });
 

@@ -10,6 +10,7 @@ describe("The mergeItems function", () => {
   `;
   it("should return no <tr>s and no <td>s for no items", () => {
     expect.fail('please write this test');
+
   });
 
   it("should return a single <tr>, four <td>s, and a <form> for one uncompleted item", () => {
