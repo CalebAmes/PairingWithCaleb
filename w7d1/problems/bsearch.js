@@ -21,16 +21,17 @@ const recurBSearch = (nums, targetNum) => {
   // determine the slice point (ie the 'middle' of the array).
   let middle = Math.floor(nums.length/2);
   // create "left half" and "right half" arrays, not including the slice point.
-  let left = nums.slice(0,middle-1);
-  let right = nums.slice(middle+1)
+  let left = nums.slice(0,middle);
+  let right = nums.slice(middle+1);
   // if targetNum is less than the value in the array at slice point,
   // return this search on the left half
+  // if(nums[middle] === targetNum) return true;
   if (targetNum < nums[middle]) {
     return recurBSearch(left, targetNum);
   } 
   // if targetNum is greater than the value in the array at slice point,
   //return this search on the right half
-  else if (targetNum > nums[middle]) {
+  if (targetNum > nums[middle]) {
     return recurBSearch(right, targetNum);
   } else {
     return true;
@@ -39,9 +40,10 @@ const recurBSearch = (nums, targetNum) => {
   // we know it's equal so return true
 
 }
-let testArr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-let testArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
+// let testArr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// let testArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// console.log(testArr1.slice(3))
+// console.log(recurBSearch(testArr1, 7))
 /*******************************************************************
 BINARY SEARCH VERSION 2:
 
@@ -52,10 +54,21 @@ targetNum is within the nums array.
 const iterBSearch = (nums, targetNum) => {
   // Save references to indices at the beginning, middle, and end of the array
   // into variables: lowerIdx, midIdx, and upperIdx
-
+let lowerIdx = 0;
+let upperIdx = nums.length -1;
+let midIdx = Math.floor(nums.length /2);
   // while the lowerIdx is less than or equal to the upperIdx, there are still
   // values to be searched
-
+while(lowerIdx <= upperIdx){
+  midIdx = (upperIdx - lowerIdx)/2;
+  if(targetNum > nums[midIdx]){
+    lowerIdx = lowerIdx.slice(1);
+  }
+  else if(targetNum < nums[midIdx]){
+    upperIdx = upperIdx.slice(1);
+  }
+  
+}
   // reassign the midIdx to the the middle of the new lower and upper indices
   // Hint: This is the difference between lower and upper, divided by 2
 
