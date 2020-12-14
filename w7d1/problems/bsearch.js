@@ -40,10 +40,7 @@ const recurBSearch = (nums, targetNum) => {
   // we know it's equal so return true
 
 }
-// let testArr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-// let testArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-// console.log(testArr1.slice(3))
-// console.log(recurBSearch(testArr1, 7))
+
 /*******************************************************************
 BINARY SEARCH VERSION 2:
 
@@ -61,14 +58,18 @@ let midIdx = Math.floor(nums.length /2);
   // values to be searched
 while(lowerIdx <= upperIdx){
   midIdx = (upperIdx - lowerIdx)/2;
-  if(targetNum > nums[midIdx]){
-    lowerIdx = lowerIdx.slice(1);
+  if(nums[midIdx] > targetNum){
+    upperIdx = midIdx-1;
+    
   }
-  else if(targetNum < nums[midIdx]){
-    upperIdx = upperIdx.slice(1);
+  else if(nums[midIdx] < targetNum){
+    lowerIdx = midIdx++;
+  } else {
+    return true;
   }
   
 }
+
   // reassign the midIdx to the the middle of the new lower and upper indices
   // Hint: This is the difference between lower and upper, divided by 2
 
@@ -85,8 +86,14 @@ while(lowerIdx <= upperIdx){
 
   // if we finish our while loop and haven't returned true, we've looked over
   // the entire array and didn't find targetNum, so return false
+  return false;
+
 }
 
+let testArr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let testArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+console.log(iterBSearch(testArr1, 11))
 
 /*******************************************************************
 BINARY SEARCH VERSION 3:
