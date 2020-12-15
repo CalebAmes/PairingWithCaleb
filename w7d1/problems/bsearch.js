@@ -105,13 +105,11 @@ const recurBSearchIdx = (nums, targetNum) => {
 	
 	if(targetNum < nums[middle]) return recurBSearchIdx(left, targetNum);
 	if(targetNum > nums[middle]) {
-		
-		let returnValue = recurBSearchIdx(right, targetNum)
-		middle += returnValue;
-		return recurBSearchIdx(right, targetNum)
-	}else{
-		return nums.indexOf(targetNum)
-	}
+		// let returnValue = recurBSearchIdx(right, targetNum)
+		// middle += returnValue + 1;
+		return (middle + 1) + recurBSearchIdx(right, targetNum)
+  }
+  return middle;
 	// this implementation is identical to version 1, except rather than
 	// returning true/false, return the index where you found the item
 	// (instead of true) or -1 (instead of false).
@@ -119,13 +117,14 @@ const recurBSearchIdx = (nums, targetNum) => {
 	// and not the index of the sliced array. You'll notice this problem arise
 	// on the 'right half' recursion. in that, try saving the return value of the
 	// recursive call into a variable, and adding it to the current stack-frame's
-	// midIdx + 1.
+  // midIdx + 1.
+ 
 };
 
 let testArr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let testArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-console.log(recurBSearchIdx(testArr1, 2));
+console.log(recurBSearchIdx(testArr1, 8));
 /*******************************************************************
 BINARY SEARCH VERSION 4:
 
