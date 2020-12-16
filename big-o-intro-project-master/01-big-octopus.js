@@ -1,16 +1,15 @@
 const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
   'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
 function quadraticBiggestFish(fishes) {
-  let result = ''
-  for(let i = 0; i < fishes.length; i++){
-      let el = fishes[i]
-      if(el.length > result.length){
-          result = el
-      }
-  }
-  return result
+ for(let i = 0; i < fishes.length; i++){
+   let el1 = fishes[i]
+   let counter = 0
+   for(let j = 0; j < fishes.length; j++){
+     let el2 = fishes[i]
+   }
+ }
 }
-// console.log(quadraticBiggestFish(fishies))
+
 
 
 function nlognBiggestFish(fishes) {
@@ -23,7 +22,14 @@ function nlognBiggestFish(fishes) {
 console.log(nlognBiggestFish(fishies))
 
 function linearBiggestFish(fishes) {
-  // Code goes here ...
+  let result = ''
+  for (let i = 0; i < fishes.length; i++) {
+    let el = fishes[i]
+    if (el.length > result.length) {
+      result = el
+    }
+  }
+  return result
 }
 
 
