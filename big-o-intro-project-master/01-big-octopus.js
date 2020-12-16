@@ -51,6 +51,12 @@ tilesObj = {
   "left": 6,
   "left-up": 7
 }
+
 function fastDance(direction, tilesObj) {
-  
+  if(direction in tilesObj) return tilesObj[direction];
+  // let keys = Object.keys(tilesObj);
+  // console.log(keys)
+  // if(direction === keys) return keys;
 }
+
+console.log(fastDance('left', tilesObj))
