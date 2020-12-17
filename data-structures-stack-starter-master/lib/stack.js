@@ -35,26 +35,31 @@ class Stack {
     this.top = this.store[0];
   }
 
-  push(val) { // should accept a single input parameter
-    let topEl = new Node(val); // should create a new node with the value provided as input
-    this.top = topEl; // should reassign both the top pointer when a new node is added to the top of an empty stack
-    this.store.push(topEl); 
-    // topEl = this.head;
-    const newTop = topEl.next
-    return ++this.length;
+  push(val) { 
+    let prevTop = this.top;  // B 
+    let newTop = new Node(val); // C
+    this.top = newTop; // sets to C
+    newTop.next = prevTop; // sets C's next value to B
+    this.store.push(newTop); // stores C
     
+    return ++this.length;  
   }
 
   pop() {
-    let topEl = new Node();
-
     if(this.length === 0) return null;
     if(this.length === 1) this.top = null;
 
+    let newTop = new Node();
+    let prevTop = this.top;
+    this.top = prevTop;
+
+    let something = this.store.pop()
+
+    console.log(newTop);
+
+
     let lastEl = this.store.pop()
-
     --this.length;
-
     return lastEl;
     // this.top = topEl.previous;
   }
@@ -68,9 +73,9 @@ class Stack {
 }
 
 const newArr = new Stack();
-newArr.push(9);
 newArr.push(1);
-newArr.push(3);
+newArr.push(52);
+newArr.pop()
 console.log(newArr);
 
 exports.Node = Node;
