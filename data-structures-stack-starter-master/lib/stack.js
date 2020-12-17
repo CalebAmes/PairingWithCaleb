@@ -25,14 +25,13 @@ class Node {
     this.value = value;
     this.next = null;
   }
-
 }
 
 class Stack {
   constructor(length = 0) {
     this.length = length;
-    this.store = new Array();
-    this.top = this.store[0];
+    // this.store = new Array();
+    this.top = null;
   }
 
   push(val) { 
@@ -40,28 +39,26 @@ class Stack {
     let newTop = new Node(val); // C
     this.top = newTop; // sets to C
     newTop.next = prevTop; // sets C's next value to B
-    this.store.push(newTop); // stores C
     
     return ++this.length;  
   }
 
   pop() {
     if(this.length === 0) return null;
-    if(this.length === 1) this.top = null;
+    
+    let oldTop = this.top; 
+    let newTop = oldTop.next
+    // console.log(newTop)
+    this.top = newTop;
+    // let  = new Node()
 
-    let newTop = new Node();
-    let prevTop = this.top;
-    this.top = prevTop;
-
-    let something = this.store.pop()
-
-    console.log(newTop);
-
-
-    let lastEl = this.store.pop()
+    // console.log(newTop)
+    
+    // console.log(newTop);
+    
+    
     --this.length;
-    return lastEl;
-    // this.top = topEl.previous;
+    return oldTop.value;
   }
 
   size() {
@@ -75,8 +72,10 @@ class Stack {
 const newArr = new Stack();
 newArr.push(1);
 newArr.push(52);
+newArr.push(3)
+newArr.push(17)
 newArr.pop()
-console.log(newArr);
+newArr;
 
 exports.Node = Node;
 exports.Stack = Stack;
