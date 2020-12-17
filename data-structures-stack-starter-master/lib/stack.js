@@ -42,11 +42,26 @@ class Stack {
     // topEl = this.head;
     const newTop = topEl.next
     return ++this.length;
+    
   }
 
-  pop() {}
+  pop() {
+    let topEl = new Node();
 
-  size() {}
+    if(this.length === 0) return null;
+    if(this.length === 1) this.top = null;
+
+    let lastEl = this.store.pop()
+
+    --this.length;
+
+    return lastEl;
+    // this.top = topEl.previous;
+  }
+
+  size() {
+    return this.length
+  }
 
 
 
