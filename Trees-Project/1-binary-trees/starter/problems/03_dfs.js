@@ -3,8 +3,8 @@ function dfs(root){
 
   let res = [];
 
-  res = res.concat(dfs(root.left));
   res.push(root.val);
+  res = res.concat(dfs(root.left));
   res = res.concat(dfs(root.right))
 
   return res;
