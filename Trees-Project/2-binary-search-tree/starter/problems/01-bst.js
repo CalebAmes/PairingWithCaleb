@@ -23,39 +23,56 @@ class BST {
 
     while (true) {
       if (newNode.val < parent.val) {
-        if(parent.left == null) return parent.left = newNode;
+        if (parent.left == null) return parent.left = newNode;
         else parent = parent.left;
       }
       else {
-        if(parent.right == null) return parent.right = newNode;
+        if (parent.right == null) return parent.right = newNode;
         else parent = parent.right;
       }
     }
   }
 
   searchRecur(val, root = this.root) {
-    if(root == null) return false;
-    if(root.val == val) return true;
+    if (root == null) return false;
+    if (root.val == val) return true;
 
-    if(root.val < val) return this.searchRecur(val, root.right)
+    if (root.val < val) return this.searchRecur(val, root.right)
     else return this.searchRecur(val, root.left)
+  }
+
+  searchIter(val) {
+    if (this.root === null) return false
+    if (this.root.val === val) return true
+
+    let parent = this.root
+    while (parent !== null) {
+      if (parent.val < val) {
+        parent = parent.right
+      }
+      else if (parent.val > val) {
+        parent = parent.left
+      }
+      else return true
+    }
+    return false
   }
 }
 
 
-let tree = new BST();
-tree.insert(10);
-tree.insert(5);
-tree.insert(16);
-tree.insert(1);
-tree.insert(7);
-tree.insert(16);
-console.log(tree.root.val);
-console.log(tree.root.left.val)
-console.log(tree.root.right.val);
-console.log(tree.root.left.left.val)
-console.log(tree.root.left.right.val)
-console.log(tree.root.right.right.val);
+// let tree = new BST();
+// tree.insert(10);
+// tree.insert(5);
+// tree.insert(16);
+// tree.insert(1);
+// tree.insert(7);
+// tree.insert(16);
+// console.log(tree.root.val);
+// console.log(tree.root.left.val)
+// console.log(tree.root.right.val);
+// console.log(tree.root.left.left.val)
+// console.log(tree.root.left.right.val)
+// console.log(tree.root.right.right.val);
 
 module.exports = {
   TreeNode,
