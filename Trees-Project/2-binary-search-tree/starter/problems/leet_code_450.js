@@ -11,8 +11,10 @@
 
 
 function deleteNode(root, key) {
-  let surfer = root
+  let surfer = root;
+  let parent = null;
   while ((surfer.val !== key) && (surfer !== null)) {
+    parent = surfer;
     if (key > surfer.val) surfer = surfer.right
     else surfer = surfer.left
 
@@ -20,9 +22,33 @@ function deleteNode(root, key) {
     if (surfer === null) return false
   }
 
+  //leaf deletion
   if (surfer.right === null && surfer.left === null) {
-    surfer = null
+    if(parent.right == surfer) parent.right = null;
+    else parent.left = null;
+    return true;
   }
 
-  return false
+  //single child deletion
+  if (surfer.right === null){
+    if(parent.right === surfer) parent.right = surfer.left;
+    else parent.left = surfer.left;
+    return true;
+  }
+  if (surfer.left === null){
+    if(parent.right === surfer) parent.right = surfer.right;
+    else parent.left = surfer.right;
+    return true;
+  }
+
+  //double child deletion
+  if(surfer.left !== null && surfer.right !== null){
+    let currentNode = surfer.right;
+    while(currentNode.left !== null){
+      currentNode = currentNode.left;
+    }
+    
+  }
+
+  return false;
 }
