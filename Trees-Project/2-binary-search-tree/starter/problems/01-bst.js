@@ -16,27 +16,46 @@ class BST {
 
     if (this.root === null) return this.root = newNode
 
-    let right = this.root.right
-    let left = this.root.left
-    while (this.root !== null) {
-      if (newNode > this.root.val) {
-        if (right === null) right = newNode
-        else right = this.root
+    let parent = this.root;
+
+    // let right = this.root.right
+    // let left = this.root.left
+
+    while (true) {
+      if (newNode.val < parent.val) {
+        if(parent.left == null) return parent.left = newNode;
+        else parent = parent.left;
       }
       else {
-        if (this.root.left === null) this.root.left = newNode
-        else this.root.left = this.root
+        if(parent.right == null) return parent.right = newNode;
+        else parent = parent.right;
       }
-
     }
-
-
   }
 
-  searchRecur(val) {
+  searchRecur(val, root = this.root) {
+    if(root == null) return false;
+    if(root.val == val) return true;
 
+    if(root.val < val) return this.searchRecur(val, root.right)
+    else return this.searchRecur(val, root.left)
   }
 }
+
+
+let tree = new BST();
+tree.insert(10);
+tree.insert(5);
+tree.insert(16);
+tree.insert(1);
+tree.insert(7);
+tree.insert(16);
+console.log(tree.root.val);
+console.log(tree.root.left.val)
+console.log(tree.root.right.val);
+console.log(tree.root.left.left.val)
+console.log(tree.root.left.right.val)
+console.log(tree.root.right.right.val);
 
 module.exports = {
   TreeNode,
