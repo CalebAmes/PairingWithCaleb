@@ -8,25 +8,27 @@
 // compare the index of i in the preorder to the parent
 
 const { TreeNode } = require('./01_tree_node.js');
-[1,4,2,3]
-[1,2,3,4]
+[1, 4, 2, 3]
+[1, 2, 3, 4]
 function buildTree(preorder, inorder) {
-	if (preorder.length !== inorder.length || preorder.length == 0) return null;
+  if (preorder.length !== inorder.length || preorder.length == 0) return null;
 
-	let root = new TreeNode(preorder[0]);
+  let root = new TreeNode(preorder[0]);
 
-	for (let i = 1; i < preorder.length; i++) {
-		let currentNode = new TreeNode(preorder[i]);
-		let compareNode = root;
-		let index = inorder.indexOf(preorder[i]);
-		let compIndex = inorder.indexOf(compareNode.val);
-		let parent;
-		while (compareNode !== null) {
-			parent = compareNode;
-			if (index < compIndex) compareNode = compareNode.left;
-			if (index > compIndex) compareNode = compareNode.right;
+  for (let i = 1; i < preorder.length; i++) {
+    let currentNode = new TreeNode(preorder[i]);
+    let index = inorder.indexOf(preorder[i]);
+
+    let compareNode = root;
+    let compIndex = inorder.indexOf(compareNode.val);
+
+    let parent;
+    while (compareNode !== null) {
+      parent = compareNode;
+      if (index < compIndex) compareNode = compareNode.left;
+      if (index > compIndex) compareNode = compareNode.right;
     }
-    if(index < inorder.indexOf(parent.val)) parent.left = currentNode;
+    if (index < inorder.indexOf(parent.val)) parent.left = currentNode;
     else parent.right = currentNode;
   }
   return root;
