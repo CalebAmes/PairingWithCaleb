@@ -19,36 +19,46 @@ function deleteNode(root, key) {
     else surfer = surfer.left
 
     // key is not in BST
-    if (surfer === null) return false
+    if (surfer === null) return root
   }
 
+  //double child deletion
+  if (surfer.left !== null && surfer.right !== null) {
+    let currentNode = surfer.right;
+    let currentNodeParent = surfer
+    while (currentNode.left !== null) {
+      currentNodeParent = currentNode
+      currentNode = currentNode.left;
+    }
+    surfer.val = currentNode.val
+
+    simpleDeletion(currentNode, currentNodeParent)
+  }
+
+  simpleDeletion(surfer, parent);
+
+  return root
+}
+
+let simpleDeletion = (surfer, parent) => {
   //leaf deletion
   if (surfer.right === null && surfer.left === null) {
-    if(parent.right == surfer) parent.right = null;
+    if (parent.right == surfer) parent.right = null;
     else parent.left = null;
     return true;
   }
 
   //single child deletion
-  if (surfer.right === null){
-    if(parent.right === surfer) parent.right = surfer.left;
+  if (surfer.right === null) {
+    if (parent.right === surfer) parent.right = surfer.left;
     else parent.left = surfer.left;
     return true;
   }
-  if (surfer.left === null){
-    if(parent.right === surfer) parent.right = surfer.right;
+  if (surfer.left === null) {
+    if (parent.right === surfer) parent.right = surfer.right;
     else parent.left = surfer.right;
     return true;
   }
 
-  //double child deletion
-  if(surfer.left !== null && surfer.right !== null){
-    let currentNode = surfer.right;
-    while(currentNode.left !== null){
-      currentNode = currentNode.left;
-    }
-    
-  }
-
-  return false;
+  return false
 }
