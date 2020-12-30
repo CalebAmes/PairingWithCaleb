@@ -47,7 +47,7 @@ class Graph {
   breadthFirstTraversal(startingVertex) {
     let arr = [];
     arr.push(startingVertex);//a
-    
+
     for(let i = 0; i < arr.length; i++){
       let first = this.adjList[arr[i]];
       first.forEach(el => {
@@ -66,6 +66,9 @@ class Graph {
   // f: [ 'c', 'g' ]
 
   //should return [a,d,g,f,c,b,e]
+
+  // [ 'a', 'b', 'c', 'f', 'g', 'd', 'e' ]
+
   depthFirstTraversalIterative(startingVertex) {
     let result = [];
     result.push(startingVertex); //a
@@ -83,9 +86,20 @@ class Graph {
     // Code goes here ...
   }
 
-  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
-    
-    // Code goes here ...
+  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = [], counter = 0) {
+    if (counter === 6) return vertices;
+
+    vertices.push(startingVertex);
+
+    // let holder = this.adjList[startingVertex];
+    // console.log(holder)
+      for(let j = vertices.length -1; j >= 0; j--){
+        if(!(vertices.includes(vertices[j]))){
+          visited.add(vertices[j]);
+          console.log(vertices[j])
+          return this.depthFirstTraversalRecursive(vertices[j], visited, vertices, counter += 1)
+          }
+        }
   }
 
 }
@@ -103,7 +117,8 @@ const edges =
 ['f', 'g']];
 
 graff.buildGraph(edges)
-console.log(graff.breadthFirstTraversal('a'))
+graff.depthFirstTraversalRecursive()
+// console.log(graff.breadthFirstTraversal('a'))
 // // console.log(graff.addEdges('e', 'f'))
 // console.log(graff.(edges))
 // console.log(graff)
