@@ -26,7 +26,7 @@ class Graph {
   }
 
   buildGraph(edges) {
-    for(let i = 0; i < edges.length; i++){
+    for (let i = 0; i < edges.length; i++) {
       this.addEdges(edges[i][0], edges[i][1])
     }
     return this.adjList;
@@ -48,10 +48,10 @@ class Graph {
     let arr = [];
     arr.push(startingVertex);//a
 
-    for(let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
       let first = this.adjList[arr[i]];
       first.forEach(el => {
-        if(!(arr.includes(el))) arr.push(el);
+        if (!(arr.includes(el))) arr.push(el);
       })
     }
     return arr;
@@ -73,51 +73,48 @@ class Graph {
     let result = [];
     result.push(startingVertex); //a
 
-    for(let i = 0; i < result.length; i++){//['a']
+    for (let i = 0; i < result.length; i++) {//['a']
       let holder = this.adjList[result[i]];
-      for(let j = holder.length -1; j >= 0; j--){
-        if(!(result.includes(holder[j]))){
+      for (let j = holder.length - 1; j >= 0; j--) {
+        if (!(result.includes(holder[j]))) {
           result.push(holder[j]);
           break;
-          }
         }
+      }
     }
     return result;
-    // Code goes here ...
   }
 
-  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = [], counter = 0) {
-    if (counter === 6) return vertices;
+  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
+    if (visited.has(startingVertex)) return vertices;
 
+    visited.add(startingVertex);
     vertices.push(startingVertex);
 
-    // let holder = this.adjList[startingVertex];
-    // console.log(holder)
-      for(let j = vertices.length -1; j >= 0; j--){
-        if(!(vertices.includes(vertices[j]))){
-          visited.add(vertices[j]);
-          console.log(vertices[j])
-          return this.depthFirstTraversalRecursive(vertices[j], visited, vertices, counter += 1)
-          }
-        }
+    let holder = this.adjList[startingVertex];
+
+    for (let j = 0; j < holder.length; j++) {
+      this.depthFirstTraversalRecursive(holder[j], visited, vertices)
+    }
+    return vertices
   }
 
 }
 let graff = new Graph()
 
 const edges =
-[['a', 'b'],
-['a', 'c'],
-['a', 'd'],
-['d', 'g'],
-['b', 'c'],
-['b', 'e'],
-['c', 'f'],
-['c', 'g'],
-['f', 'g']];
+  [['a', 'b'],
+  ['a', 'c'],
+  ['a', 'd'],
+  ['d', 'g'],
+  ['b', 'c'],
+  ['b', 'e'],
+  ['c', 'f'],
+  ['c', 'g'],
+  ['f', 'g']];
 
 graff.buildGraph(edges)
-graff.depthFirstTraversalRecursive()
+console.log(graff.depthFirstTraversalRecursive('a'))
 // console.log(graff.breadthFirstTraversal('a'))
 // // console.log(graff.addEdges('e', 'f'))
 // console.log(graff.(edges))
