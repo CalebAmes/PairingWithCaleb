@@ -1,19 +1,32 @@
 
 class Graph {
   constructor() {
-    // Code goes here ...
+    this.adjList = new Object();
   }
 
   addVertex(vertex) {
-    // Code goes here ...
+    if (vertex in this.adjList) {
+      return;
+    }
+
+    this.adjList[vertex] = new Array();
   }
 
   addEdges(srcValue, destValue) {
-    // Code goes here ...
+    if (!(srcValue in this.adjList)) {
+      this.addVertex(srcValue);
+    }
+
+    if (!(destValue in this.adjList)) {
+      this.addVertex(destValue);
+    }
+
+    this.adjList[srcValue].push(destValue);
+    this.adjList[destValue].push(srcValue);
   }
 
   buildGraph(edges) {
-    // Code goes here ...
+    
   }
 
   breadthFirstTraversal(startingVertex) {
@@ -33,12 +46,3 @@ class Graph {
 module.exports = {
   Graph
 };
-
-
-
-
-
-
-
-
-
