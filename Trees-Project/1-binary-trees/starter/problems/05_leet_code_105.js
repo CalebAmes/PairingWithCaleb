@@ -13,23 +13,30 @@ const { TreeNode } = require('./01_tree_node.js');
 function buildTree(preorder, inorder) {
   if (preorder.length !== inorder.length || preorder.length == 0) return null;
 
+  let memo = {}
+  for (let i = 0; i < inorder.length; i++) {
+    memo[preorder[i]] = inorder.indexOf(preorder[i]);
+  }
   let root = new TreeNode(preorder[0]);
 
   for (let i = 1; i < preorder.length; i++) {
     let currentNode = new TreeNode(preorder[i]);
-    let index = inorder.indexOf(preorder[i]);
+
+    let index = memo[preorder[i]]
 
     let compareNode = root;
-    let compIndex = inorder.indexOf(compareNode.val);
+    let compIndex
 
     let parent;
     while (compareNode !== null) {
       parent = compareNode;
+      compIndex = memo[compareNode.val];
       if (index < compIndex) compareNode = compareNode.left;
       if (index > compIndex) compareNode = compareNode.right;
     }
-    if (index < inorder.indexOf(parent.val)) parent.left = currentNode;
+    if (index < memo[parent.val]) parent.left = currentNode;
     else parent.right = currentNode;
+
   }
   return root;
 }
