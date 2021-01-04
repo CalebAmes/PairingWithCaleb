@@ -2,6 +2,7 @@
 .homepage #go,
 .homepage .leftlinks #cl_app_beta,
 .no-js,
+
 p.more {
   display: none;
 }
@@ -9,6 +10,8 @@ p.more {
 #logo {
   font-size: 2.5rem;
 }
+
+
 
 .homepage-search .querybox {
   border-top: 0;
@@ -31,3 +34,24 @@ p.more {
 }
 
 /* Write your CSS here. */
+
+
+* {
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  background-color: #F5F5F5;
+  color:#464646;
+} 
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  /* border: 3px solid blue;  */
+  padding: 0; 
+ }
+
+ul > li {
+  list-style: none;
+}
+
