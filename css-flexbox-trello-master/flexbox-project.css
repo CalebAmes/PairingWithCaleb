@@ -26,6 +26,8 @@ body {
   .boards-label{
     display: none;
   }
+
+  
   /* Hide the "Boards" text, but leave the boards icon. */
 }
 .team__container{
@@ -53,7 +55,7 @@ body {
 
 .tabbed-nav__container{
   background-color: #f4f5f7;
-
+  
 }
 
 .tabbed-nav__group{
@@ -131,7 +133,18 @@ body {
   justify-content: space-around;
 }
 
+@media screen and (min-width: 751px, max-width: 1280px){
+  .boards__board{
+    width: 33%;
+  }
+}
 
+@media screen and (max-width: 750px) {
+  .boards__board{
+    width: 100%;
+    max-width: unset;
+  }
+} 
 
 
 
