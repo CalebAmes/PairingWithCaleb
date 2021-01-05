@@ -12,8 +12,23 @@ body {
   padding: 4px;
   color:white;
   display: flex;
+  justify-content: space-between;
 }
+ #alerts {
+   background-color: #cf513d;
+ }
 
+@media screen and (max-width: 730px) {
+  /* Hide the header search input field. */
+  #search{
+    display: none;
+  }
+  .boards-label{
+    display: none;
+  }
+  /* Hide the "Boards" text, but leave the boards icon. */
+
+}
 
 
 
