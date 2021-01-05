@@ -1,5 +1,18 @@
 /* Write your CSS here. */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  margin: 0px;
+}
 
+.header-nav__container {
+  background-color: #026AA7;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 4px;
+  color:white;
+  display: flex;
+}
 
 
 
