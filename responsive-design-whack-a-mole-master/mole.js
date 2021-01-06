@@ -16,6 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
     <img src = "mole-hill.png" class="wgs__dirt-pile"> 
   </div>`;
   }
-  popUpRandomMole()
-// let random = Math.floor(Math.random()*7);
+ 
+  const hideMole = (rando) {}
 })
