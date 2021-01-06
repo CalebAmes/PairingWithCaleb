@@ -17,8 +17,8 @@
     position : absolute;
     width : 188px;
     left: 54.5px;
-    transition-duration: 0.25s;
     transition: margin-top;
+    transition-duration: 0.25s;
 
 }
 
