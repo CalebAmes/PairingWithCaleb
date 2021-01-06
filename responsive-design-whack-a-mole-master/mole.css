@@ -1,36 +1,40 @@
+.pf {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
 .wgs {
-    height: 482px;
+    height: 241px;
     position: relative;
-    width: 640px;
+    width: 320px;
     display: inline-block;
     overflow: hidden;
 }
 
 .wgs__mole-head {
-    height: 356px;
+    height: 178px;
     position : absolute;
-    width : 376px;
-    left: 109px;
-    
-    transition: margin-top;
+    width : 188px;
+    left: 54.5px;
     transition-duration: 0.25s;
-   
+    transition: margin-top;
 
 }
 
 .wgs__dirt-pile {
-    height : 220px;
+    height : 110px;
     position: absolute;
-    width : 640px;
+    width : 320 px;
     bottom: 0;
 }
 
 .wgs__mole-head--hidden {
-    height : 356 px;
+    height : 178px;
     position : absolute;
-    width : 376 px;
-    left : 109 px;
-    margin-top: 500px;
+    width : 188px;
+    left : 54.5 px;
+    margin-top: 241px;
     /* transition: margin-top;
     transition: transform 0.25s; */
 }
