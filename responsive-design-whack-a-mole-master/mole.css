@@ -3,6 +3,7 @@
     position: relative;
     width: 640px;
     display: inline-block;
+    overflow: hidden;
 }
 
 .wgs__mole-head {
@@ -10,6 +11,11 @@
     position : absolute;
     width : 376px;
     left: 109px;
+    
+    transition: margin-top;
+    transition-duration: 0.25s;
+   
+
 }
 
 .wgs__dirt-pile {
@@ -25,4 +31,6 @@
     width : 376 px;
     left : 109 px;
     margin-top: 500px;
+    /* transition: margin-top;
+    transition: transform 0.25s; */
 }
