@@ -52,4 +52,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document
         .getElementById('downvote')
         .addEventListener('click', (event) => voteFunc("down"));
+
+    let form = document.getElementsBy('form');
+    console.log(form)
+
+        // .addEventListener('submit', (event) => {
+        //     event.preventDefault()
+        //     console.log('hello there')
+        // })
 });
