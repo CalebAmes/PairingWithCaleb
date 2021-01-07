@@ -1,6 +1,8 @@
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const imgSetter = async () => {
         let loader = document.querySelector('.loader');
+        let score = document.querySelector('.score');
         loader.innerText = 'Loading...';
         try {
             let catPic = document.querySelector('.cat-pic');
@@ -11,6 +13,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             catPic.src = json.src;
             loader.innerHTML = '';
+            score.innerHTML = 0;
+
         } catch (err) {
             handleError(err);
             loader.innerText = '';
@@ -53,11 +57,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
         .getElementById('downvote')
         .addEventListener('click', (event) => voteFunc("down"));
 
-    let form = document.getElementsBy('form');
-    console.log(form)
+    let form = document.querySelector('.comment-form');
+        // form.addEventListener('submit', (event) => {
+        //     event.preventDefault();
 
-        // .addEventListener('submit', (event) => {
-        //     event.preventDefault()
-        //     console.log('hello there')
         // })
+    form.onsubmit = async (event) => {
+        event.preventDefault();
+        let entered = document.getElementById("user-comment");
+        let response = await fetch("/kitten/comments", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({comment: entered.value})
+        })
+        let result = await response.json();
+
+        let commentsBox = document.querySelector(".comments");
+        console.log(commentsBox);
+
+        // commentsBox.innerText += result.comments;
+        const pTag = document.createElement("p");
+        pTag.innerHTML = result.comments[result.comments.length - 1];
+        commentsBox.appendChild(pTag);
+        // commentsBox.appendChild(`<p class="comments-child">${result.comments[result.comments.length - 1]}</p>`);
+    }
 });
