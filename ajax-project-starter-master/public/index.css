@@ -1,5 +1,77 @@
 body {
   background-color: #bbb891;
+  font-family: 'trebuchet ms';
+  color: #242325;
+}
+
+.comments {
+  background-color: purple;
+}
+
+#new-pic {
+  font-size: 50px;
+  border-radius: 15px;
+  /* box-shadow: 0px 0px 4px black; */
+  background-color: #242325;
+  padding: 15px 30px;
+  margin: 15px;
+  color: #dc965a;
+  
+}
+
+input {
+  font-size: 15px;
+  border-radius: 5px;
+  /* box-shadow: 0px 0px 4px black; */
+  background-color: #242325;
+  padding: 6px 30px;
+  margin: 15px;
+  color: #dc965a;
+}
+
+.user-comment {
+  box-shadow: none;
+}
+
+h1 {
+  font-size: 80px;
+  padding: 0;
+  margin: 30px;
+
+}
+
+.user-comment-container {
+  display: inline;
+
+}
+
+label {
+  font-size: 30px;
+  border-radius: 15px;
+  /* box-shadow: 0px 0px 10px black; */
+  /* background-color: #242325; */
+  /* padding: 15px 30px;
+  margin: 15px; */
+  color: #242325;
+}
+
+.score-display {
+  font-size: 50px;
+  border-radius: 15px;
+  /* box-shadow: 0px 0px 10px black; */
+  /* background-color: #242325; */
+  padding: 15px 30px;
+  margin: 15px;
+  color: #242325;
+}
+
+.vote-buttons {
+  font-size: 50px;
+  border-radius: 15px;
+  /* box-shadow: 0px 0px 10px; */
+  background-color: #242325;
+  padding: 15px 30px;
+  margin: 15px;
 }
 
 .container {
