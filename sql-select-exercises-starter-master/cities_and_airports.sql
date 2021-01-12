@@ -74,3 +74,5 @@ INSERT INTO airports VALUES(DEFAULT, 22, 'ELP',	'ELP',	'KELP',	'El Paso Internat
 INSERT INTO airports VALUES(DEFAULT, 23, 'DTW',	'DTW',	'KDTW',	'Detroit Metropolitan Wayne County Airport');
 INSERT INTO airports VALUES(DEFAULT, 24, 'BNA',	'BNA',	'KBNA',	'Nashville International Airport');
 INSERT INTO airports VALUES(DEFAULT, 25, 'PDX',	'PDX',	'KPDX',	'Portland International Airport');
+
+-- Phase 3 in progress
