@@ -92,6 +92,8 @@
 */
 
 -- your query here
+SELECT city FROM cities
+travel-# WHERE population_estimate_2018 >= 1000000;
 
 \echo ========= Problem 3.6 ====================================================
 \echo
