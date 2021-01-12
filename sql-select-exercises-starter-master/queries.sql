@@ -105,7 +105,8 @@ travel-# WHERE population_estimate_2018 >= 1000000;
      in 2018 of cities that are NOT in the following states:
      New York, California, Texas.
 */
-
+SELECT city, state, population_estimate_2018 FROM cities 
+WHERE state NOT IN ('New York', 'California', 'Texas');
 -- your query here
 
 \echo ========= Problem 3.7 ====================================================
@@ -116,7 +117,8 @@ travel-# WHERE population_estimate_2018 >= 1000000;
      the letter "S".
      (Note: See the PostgreSQL doc on Pattern Matching for more information.)
 */
-
+SELECT city, state, population_estimate_2018 FROM cities
+WHERE city LIKE 'S%';
 -- your query here
 
 \echo ========= Problem 3.8 ====================================================
@@ -127,7 +129,9 @@ travel-# WHERE population_estimate_2018 >= 1000000;
      (or 2,000,000 people). Show the city name, the land area, and the estimated
      population in 2018.
 */
-
+SELECT city, land_area_sq_mi_2016, population_estimate_2018 FROM cities
+WHERE land_area_sq_mi_2016 > 400
+OR population_estimate_2018 > 2000000;
 -- your query here
 
 \echo ========= Problem 3.9 ====================================================
@@ -138,6 +142,9 @@ travel-# WHERE population_estimate_2018 >= 1000000;
      (or 2,000,000 people) -- but not the cities that have both. Show the city
      name, the land area, and the estimated population in 2018.
 */
+SELECT city, land_area_sq_mi_2016, population_estimate_2018 FROM cities
+WHERE land_area_sq_mi_2016 > 400 AND NOT population_estimate_2018 > 2000000
+OR population_estimate_2018 > 2000000 AND NOT land_area_sq_mi_2016 > 400;
 
 -- your query here
 
@@ -149,6 +156,8 @@ travel-# WHERE population_estimate_2018 >= 1000000;
       the city name, the estimated population in 2018, and the census population
       in 2010.
 */
+SELECT city, population_estimate_2018, population_census_2010 FROM cities
+WHERE population_estimate_2018 - population_census_2010 > 200000;
 
 -- your query here
 
