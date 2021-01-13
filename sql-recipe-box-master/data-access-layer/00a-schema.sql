@@ -9,7 +9,7 @@ DROP USER IF EXISTS recipe_box_app;
 -- it a super user.
 
 -- YOUR CODE HERE
-CREATE USER recipe_box_app PASSWORD "SPuaQ3no";
+CREATE USER recipe_box_app WITH PASSWORD "SPuaQ3no";
 
 
 
