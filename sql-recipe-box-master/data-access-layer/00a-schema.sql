@@ -9,12 +9,17 @@ DROP USER IF EXISTS recipe_box_app;
 -- it a super user.
 
 -- YOUR CODE HERE
-
+CREATE USER recipe_box_app PASSWORD "SPuaQ3no";
 
 
 
 -- You will need to create a new database for the application named
 -- 'recipe_box'. It should be owned by 'recipe_box_app'. You may want to revoke
 -- connect privileges from PUBLIC just to have good security.
+
+CREATE DATABASE recipe_box 
+WITH OWNER recipe_box_app;
+
+REVOKE CONNECT ON DATABASE recipe_box FROM PUBLIC;
 
 -- YOUR CODE HERE
