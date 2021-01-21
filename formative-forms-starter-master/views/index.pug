@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+  h2 Existing Users
+  table.table-dark
+    thead
+      tr
+      tr
+        th id
+        th First Name
+        th Last Name
+        th Email
+        th Age
+        th Favorite Beatle
+        th Likes Ice Cream
+    tbody
+      each val in users
+        tr
+          td #{val.id}
+          td #{val.firstName}
+          td #{val.lastName}
+          td #{val.email}
+          td #{val.age}
+          td #{val.favoriteBeatle}
+          td #{val.likesIceCream}
