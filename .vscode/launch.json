@@ -17,6 +17,7 @@
       "console": "integratedTerminal",
       "program": "${workspaceFolder}/bin/www",
       "envFile": "${workspaceFolder}/.env"
+      
     }
   ]
 }

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-const app = require('../app')
+const { port } = require('../config');
 
-const port = 8080;
-app.listen(port, () => {
-  console.log(`app listening on port ${port}...`);
-});
+const app = require('../app');
+
+// Start listening for connections.
+
+app.listen(port, () => console.log(`Listening on port ${port}...`));
