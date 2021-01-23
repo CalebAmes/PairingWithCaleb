@@ -1,10 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const routes = require("./routes.js");
+const cookie_parser = require("cookie-parser");
 
 const app = express();
-app.use(morgan("dev"));
+
 app.set("view engine", "pug");
+
+app.use(morgan("dev"));
+app.use(cookie_parser());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(routes);
 
