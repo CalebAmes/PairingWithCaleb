@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "start"
+      ],
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+      ],
+      "restart": true,
+      "console": "integratedTerminal",
+      "program": "${workspaceFolder}/bin/www",
+      "envFile": "${workspaceFolder}/.env"
+      
+    }
+  ]
+}
