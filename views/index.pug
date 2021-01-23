@@ -2,3 +2,7 @@ extends layout.pug
 
 block content
   p Hello from the Reading List app!
+  h3 Books
+  ul
+    each book in books
+      li= book.title

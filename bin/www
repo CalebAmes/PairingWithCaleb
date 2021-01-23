@@ -3,7 +3,18 @@
 const { port } = require('../config');
 
 const app = require('../app');
-
+const db = require('../db/models');
 // Start listening for connections.
+db.sequelize.authenticate()
+  .then(() => {
+    console.log('Database connection success! Sequelize is ready to use...');
 
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+    // Start listening for connections.
+    app.listen(port, () => console.log(`Listening on port ${port}...`));
+  })
+  .catch((err) => {
+    console.log('Database connection failure.');
+    console.error(err);
+  });
+
+  // npx sequelize model:generate --name Book --attributes "title:string, author:string, releaseDate:dateonly, pageCount:integer, publisher:string"
